@@ -1,0 +1,94 @@
+Ioc-inversion of control-控制反轉
+降低應用程式中，元件與元件之間的相依關係，進而降低耦合度。
+--就是spring負責幫我們做new物件這個動作。
+AOP-Aspect Oriented Programming
+指不更動程式碼的情況下插入特定功能的程式碼。
+
+Spring很靈活，可任意把要做的動作插進程式碼
+Spring針對介面寫程式，不要針對類別，才能達到鬆散耦合。
+
+Spring IOC要用的東西:
+================Core Container================
+=Beans   Core   Context   ExpressionLanguage =
+==============================================
+Core Container:提供spring framwork的基礎功能，主要元件
+是BeanFacorty，BeanFacorty實作Factorydesign pattern，
+可以管理物件的生成、釋放以及物件與物件的依賴關係。
+
+DI-Dependency Injection-依賴注入
+實作IoC的手法之一，可以將元件與元件結合的相關程式抽離到組
+態檔，通過組態檔的設定自動將Dependency物件塞入到Target物件。
+Dependency 是被其它物件使用的物件
+Target是使用其它物件的物件。
+DI的相關設定:
+每個Bean元件都要有獨立的id不可重複
+每一個class可以使用不同id設定不同bean元件
+每個Bean元件可以擁有多個name，設定時可用逗號或分號隔開
+通常都用id。
+Constructor DI與Setter DI可混用
+具備有參數的建構子可使用Constructor DI
+具備空白沒有參數的建構子可使用etter DI
+
+Bean的有效範圍:
+<bean ... scopt="有效範圍"...>
+Bean是受spring控管的java物件
+-singleton(預設值):1個Bean元件對應到Spring IoC Container內的
+物件，也就是每次呼叫genBean()方法取得相同id的Bean物件都是同
+一物件。
+-prototype:每次呼叫genBean()方法都會建立新物件。
+-request:只適用於Web應用程式，將Bean元件的定義與HTTP Request
+結合，在每個HTTP Request呼叫genBean()方法取得相同id的Bean物件
+都是同1個。
+-session:只適用於Web應用程式，將Bean元件的定義與HTTP Session
+結合，在每個HTTP Session呼叫genBean()方法取得相同id的Bean物件
+都是同1個。
+
+Annotation
+@Component 最普及化的Annotation
+@Autowired 用在屬性、setter、建構子，代表對應的property會由
+Spring選擇最佳的Bean元件
+@Resource 用在屬性、setter方法，代表要透過Spring設定同名的、
+用name指定的，或是相同型別的Bean元件。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+namespace = taglab
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+...CONTEXT跟spring framwork設定檔有關
+
