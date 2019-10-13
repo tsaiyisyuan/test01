@@ -1,0 +1,23 @@
+<head>
+<title>My first Page by thymeleaf2</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style>
+.table {
+	color: green;
+	border: solid 2px orange;
+}
+</style>
+
+</head>
+
+<body>
+	<table class="table">
+		<tr th:each="pb : ${pbs}">
+			<td th:text="${pb.productId}"></td>
+			<td th:text="${pb.productName}"></td>
+		</tr>
+	</table>
+
+	<h2>hi hi hi hi hi</h2>
+</body>
+</html>
